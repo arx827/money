@@ -1,0 +1,158 @@
+@import "import/vars";
+@import "mixins/mixins";
+
+@import "import/text";
+
+/*---------*\
+    reset
+\*---------*/
+@import "import/reset";
+
+
+
+body{
+    -webkit-text-size-adjust: 100%;                    /*強制瀏覽器不要縮放文字*/
+    text-align: center;
+}
+html, body {
+    font-size: calc(12px + (30 - 12) * ((100vw - 414px) / (1920 - 414)));
+}
+.og_color{
+    color: $color-orange;
+}
+section{
+    padding: 30px;
+}
+
+img{
+    width: 100%;
+    margin-top: 40px;
+}
+img.bn{
+    margin-top: 0px;
+}
+
+.navbar-collapse{
+    justify-content: center;
+}
+
+.nav-link{
+    margin: 0 40px;
+}
+
+
+
+
+/*---------*\
+    title
+\*---------*/
+.title {
+    &__block {
+        margin: 1rem 0;
+        h2 {
+            font-size: 1.8rem;
+            position: relative;
+            // @include sm-media {
+            //     font-size: 3rem;
+            // }
+            @include lg-media {
+                font-size: 2.3rem;
+            }
+        }
+        .front, .back {
+            &::before, &::after {
+                content: '';
+                display: block;
+                height: 2px;
+                background-color: $color-black;
+                position: absolute;
+            }
+        }
+        .front {
+            &::before {
+                width: 15rem;
+                top: -20px;
+                left: -30px;
+            }
+            &::after {
+                width: 8rem;
+                top: -10px;
+                left: -30px;
+            }
+        }
+        .back {
+            &::before {
+                width: 8rem;
+                bottom: -10px;
+                right: -30px;
+            }
+            &::after {
+                width: 15rem;
+                bottom: -20px;
+                right: -30px;
+            }
+        }
+    }
+}
+
+/*---------*\
+    block
+\*---------*/
+.block {
+    &__line__fb {
+        width: 30%;
+        min-width: 200px;
+        margin: 0 auto;
+    }
+    &__fb {
+
+    }
+    &_set {
+        padding-top: 2rem;
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+    }
+    &__link {
+        display: inline-block;
+        width: 30%;
+        min-width: 200px;
+        .line_at {
+            width: 100%;
+        }
+    }
+    &__img {
+        width: 100%;
+        @include sm-media {
+            width: 80%;
+        }
+    }
+}
+
+/*-----------*\
+    footer
+\*-----------*/
+.footer {
+    color: $color-white;
+    background: $color-black;
+    padding: 10px;
+    font-size: 12px;
+    @include md-media {
+        font-size: .6rem;
+    }
+    &__btnGroup {
+        min-height: 30px;
+        &__link {
+            display: inline-block;
+            &.no-link {
+                cursor: auto;
+            }
+            img {
+                width: 50px;
+                margin: 0;
+            }
+        }
+    }
+}
